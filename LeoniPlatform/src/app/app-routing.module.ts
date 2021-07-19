@@ -6,6 +6,7 @@ import { AllUsersComponent } from './all-users/all-users.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BestPracticesComponent } from './best-practices/best-practices.component';
+import { UploadFileComponent } from './upload-file/upload-file.component';
 
 const routes: Routes = [
   {path:'ownpractices',component:OwnPracticeComponent},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path:'addpractice',component:AddNewPracticeComponent},
   {path:'allusers',component:AllUsersComponent},
   {path:'addnewuser',component:AddNewUserComponent},
-  {path:'success',component:SuccessAddComponent}
+  {path:'success',component:SuccessAddComponent},
+  {path:'uploadfile',component:UploadFileComponent}
 
 ];
 
