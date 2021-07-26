@@ -1,3 +1,4 @@
+import { AllProfilesComponent } from './all-profiles/all-profiles.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,7 +16,8 @@ import { AddNewPracticeComponent } from './add-new-practice/add-new-practice.com
 import { OwnPracticeComponent } from './own-practice/own-practice.component';
 import { HttpEvent } from '@angular/common/http';
 import { UploadFileComponent } from './upload-file/upload-file.component';
-
+import { AddNewProfileComponent } from './add-new-profile/add-new-profile.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,13 +30,18 @@ import { UploadFileComponent } from './upload-file/upload-file.component';
     BestPracticesComponent,
     AddNewPracticeComponent,
     OwnPracticeComponent,
-    UploadFileComponent
+    UploadFileComponent,
+    AddNewProfileComponent,
+    AllProfilesComponent,
+    EditProfileComponent
+
   ],
   imports: [
     FormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

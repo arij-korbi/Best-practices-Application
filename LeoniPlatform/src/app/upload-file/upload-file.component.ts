@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UploadFilesService } from './../services/upload-file.service';
-import { NgStyle } from '@angular/common';
 @Component({
   selector: 'app-upload-file',
   templateUrl: './upload-file.component.html',

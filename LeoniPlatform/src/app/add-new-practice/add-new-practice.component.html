@@ -17,39 +17,38 @@
     </section>
  <!-- Main content -->
  <section class="content">
+  <form #addOrderForm="ngForm" (ngSubmit)="addOrder(addOrderForm)" >
+
     <div class="container-fluid">
   
-
+<!--***********Title**************-->
       <div class="card card-dark">
         <div class="card-header">
           <h3 class="card-title float-sm-center"><b>WSD Best Practice SHARING</b></h3>
-
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
             <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-remove"></i></button>
           </div>
         </div>
-        <!-- /.card-header -->
         <div class="card-body">
           <div class="row">
             <div class="col-12">
               <div class="form-group">
+                <small  class="text-danger">{{msg}}</small>
                 <label>Title/Content:</label>
-                <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
-
-              </div>
-              <!-- /.form-group -->
+                <input type="text" name="title" class="form-control" id="exampleInputPassword1"  [(ngModel)]="order.title" required #title="ngModel"
+                [class.is-invalid]="(title.invalid && title.touched)" >
+                <small  class="text-danger" [class.d-none]="(title.valid || title.untouched)">title/content is required field</small>              </div>
             </div>
           </div>
-        </div>
-        <!-- /.card-body -->
-        
+        </div>        
       </div>
       <!-- /.card -->
+<!--***********Infos**************-->
 
       <div class="row">
         <div class="col-md-6">
-
+<!------------------------------------>
           <div class="card card-default">
             <div class="card-header">
               <h3 class="card-title"></h3>
@@ -57,133 +56,98 @@
             <div class="card-body">
               <div class="form-group">
                 <label>Plant (LOKID):</label>
-                
                 <div class="input-group my-colorpicker2">
-                  <input type="text" class="form-control">
+                  <input type="text" name="plant" class="form-control" id="exampleInputPassword1"  [(ngModel)]="order.plant" required #plant="ngModel"
+              [class.is-invalid]="(plant.invalid && plant.touched)" >
+              <small  class="text-danger" [class.d-none]="(plant.valid || plant.untouched)">plant is required field</small>
                 </div>
               </div>
-              <!-- /.form group -->
-
-
               <div class="form-group">
                 <label>ORG-Unit:</label>
 
                 <div class="input-group">
                   <div class="input-group my-colorpicker2">
-                    <input type="text" class="form-control">
+                    <input type="text" name="orgUnit" class="form-control" id="exampleInputPassword1"  [(ngModel)]="order.orgUnit" required #orgUnit="ngModel"
+              [class.is-invalid]="(orgUnit.invalid && orgUnit.touched)" >
+              <small  class="text-danger" [class.d-none]="(orgUnit.valid || orgUnit.untouched)">Org-Unit is required field</small>
                   </div>
                 </div>
               </div>
-              <!-- /.form group -->
-
               <div class="form-group">
                 <label>Issued by:</label>
 
                 <div class="input-group">
-                  <div class="input-group my-colorpicker2">
-                    <input type="text" class="form-control">
-                  </div>
+                    <input type="text" name="issuedBy" class="form-control" id="exampleInputPassword1"  [(ngModel)]="order.issuedBy" required #issuedBy="ngModel"
+              [class.is-invalid]="(issuedBy.invalid && issuedBy.touched)" >
+              <br/>
+              <small  class="text-danger" [class.d-none]="(issuedBy.valid || issuedBy.untouched)">Issued By is required field</small>
                 </div>
               </div>
-              <!-- /.form group -->
-
-              
-
                 <div class="form-group">
                   <label>Date:</label>
                   <div class="input-group">
-                    <div class="input-group-prepend">
                       <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-                    </div>
-                    <input type="date" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="mm/dd/yyyy" data-mask>
+                    <input type="date" name="date" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="mm/dd/yyyy" data-mask  [(ngModel)]="order.date" required #date="ngModel"
+                    [class.is-invalid]="(date.invalid && date.touched)" >
+                    <small  class="text-danger" [class.d-none]="(date.valid || date.untouched)">Date is required field</small>
+
                   </div>
               </div>
-              <!-- /.form group -->
-
               <div class="form-group">
                 <label>Approved by:</label>
 
                 <div class="input-group">
                   <div class="input-group my-colorpicker2">
-                    <input type="text" class="form-control">
-                  </div>
+                    <input type="text" name="approvedBy" class="form-control" id="exampleInputPassword1"  [(ngModel)]="order.approvedBy" required #approvedBy="ngModel"
+                    [class.is-invalid]="(approvedBy.invalid && approvedBy.touched)" >
+                    <small  class="text-danger" [class.d-none]="(approvedBy.valid || approvedBy.untouched)">Username is required field</small>                  </div>
                 </div>
               </div>
-              <!-- /.form group -->
-            </div>
-            <!-- /.card-body -->
+                        </div>
           </div>
-          <!-- /.card -->
+<!------------------Contact------------------>
 
-          <div class="card card-info">
+          <div class="card card-default">
             <div class="card-header">
-              <h3 class="card-title">Color & Time Picker</h3>
+              <h3 class="card-title"><b>Contact for detailed information</b></h3>
             </div>
             <div class="card-body">
-              <!-- Color Picker -->
               <div class="form-group">
-                <label>Color picker:</label>
-                <input type="text" class="form-control my-colorpicker1">
-              </div>
-              <!-- /.form group -->
-
-              <!-- Color Picker -->
-              <div class="form-group">
-                <label>Color picker with addon:</label>
-
-                <div class="input-group my-colorpicker2">
-                  <input type="text" class="form-control">
-
-                  <div class="input-group-append">
-                    <span class="input-group-text"><i class="fas fa-square"></i></span>
-                  </div>
-                </div>
-                <!-- /.input group -->
-              </div>
-              <!-- /.form group -->
-
-              <!-- time Picker -->
-              <div class="bootstrap-timepicker">
-                <div class="form-group">
-                  <label>Time picker:</label>
-
-                  <div class="input-group date" id="timepicker" data-target-input="nearest">
-                    <input type="text" class="form-control datetimepicker-input" data-target="#timepicker"/>
-                    <div class="input-group-append" data-target="#timepicker" data-toggle="datetimepicker">
-                        <div class="input-group-text"><i class="far fa-clock"></i></div>
-                    </div>
-                    </div>
-                  <!-- /.input group -->
-                </div>
-                <!-- /.form group -->
-              </div>
-            </div>
-            <!-- /.card-body -->
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  [(ngModel)]="order.email" required #email="ngModel" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                [class.is-invalid]="email.invalid && email.touched"
+                > 
+          <div *ngIf="email.errors &&(email.touched && email.invalid)">
+            <small class="text-danger" *ngIf="email.errors.required">Email is required field</small>
+            <small class="text-danger" *ngIf="email.errors.pattern">Enter the valid email Id</small>
           </div>
-          <!-- /.card -->
-
+                 </div>
+               <div class="form-group">
+                <label>Phone number:</label>
+                <div class="input-group my-colorpicker2">
+                  <input type="text" name="number" class="form-control" id="exampleInputPassword1"  [(ngModel)]="order.number" required #number="ngModel"
+                  [class.is-invalid]="(number.invalid && number.touched)" >
+                  <small  class="text-danger" [class.d-none]="(number.valid || number.untouched)">Number is required field</small>                </div>
+           </div>
+            </div>
+          </div>
         </div>
-        <!-- /.col (left) -->
-        <div class="col-md-6">
+                <div class="col-md-6">
          
+<!------------------------------------>
 
-          <!-- iCheck -->
           <div class="card card-default">
             <div class="card-header">
               <label>Category of improvement:</label>
 
             </div>
             <div class="card-body">
-
-              <!-- Minimal style -->
               <div class="row">
-                <div class="col-sm-6">
-                  <!-- checkbox -->
-                  
+                <div class="col-sm-6">                  
                   <div class="form-group clearfix">
                    
                     <div class="icheck-danger d-inline">
-                      <input type="checkbox" id="checkboxDanger2">
+                      <input type="radio" id="checkboxDanger2" name="category" value="quality" change="radioChangeHandler($event)" [(ngModel)]="order.categoryOfImprovement">
                       <label for="checkboxDanger2"> &nbsp; Quality
                       </label>
                     </div>
@@ -193,7 +157,7 @@
                   <div class="form-group clearfix">
           
                     <div class="icheck-danger d-inline">
-                      <input type="checkbox" id="checkboxDanger2">
+                      <input type="radio" id="checkboxDanger2"name="category" value="productivity"  change="radioChangeHandler($event)" [(ngModel)]="order.categoryOfImprovement">
                       <label for="checkboxDanger2"> &nbsp; Productivity
                       </label>
                     </div>
@@ -202,10 +166,9 @@
               </div>
               <div class="row">
                 <div class="col-sm-6">
-                  <!-- checkbox -->
                   <div class="form-group clearfix">
                     <div class="icheck-danger d-inline">
-                      <input type="checkbox" id="checkboxDanger2">
+                      <input type="radio" id="checkboxDanger2" name="category" value="organisation"  change="radioChangeHandler($event)" [(ngModel)]="order.categoryOfImprovement">
                       <label for="checkboxDanger2"> &nbsp; Organisation
                       </label>
                     </div>
@@ -214,74 +177,190 @@
                 <div class="col-sm-6">
                   <div class="form-group clearfix">
                     <div class="icheck-danger d-inline">
-                      <input type="checkbox" id="checkboxDanger2">
+                      <input type="radio" id="checkboxDanger2" name="category" value="security"  change="radioChangeHandler($event)" [(ngModel)]="order.categoryOfImprovement">
                       <label for="checkboxDanger2"> &nbsp; Security / Env
                       </label>
                     </div>
                   </div>
                 </div>
-              </div>
-              <!-- Minimal red style -->
-              
+              </div>              
               <div class="row">
                 <div class="col-sm-6">
-                  <!-- checkbox -->
                   <div class="form-group clearfix">
-                    <div class="icheck-success d-inline">
-                      <input type="checkbox" checked id="checkboxSuccess1">
-                      <label for="checkboxSuccess1">
+                    
+                    
+                    <div class="icheck-danger d-inline">
+                      <input type="radio" id="checkboxDanger2" name="category" value="logistics"  change="radioChangeHandler($event)" [(ngModel)]="order.categoryOfImprovement">
+                      <label for="checkboxDanger2"> &nbsp; Logistics
                       </label>
                     </div>
-                    <div class="icheck-success d-inline">
-                      <input type="checkbox" id="checkboxSuccess2">
-                      <label for="checkboxSuccess2">
-                      </label>
-                    </div>
-                    <div class="icheck-success d-inline">
-                      <input type="checkbox" disabled id="checkboxSuccess3">
-                      <label for="checkboxSuccess3">
-                        Success checkbox
+
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group clearfix">
+                    
+                  
+                    <div class="icheck-danger d-inline">
+                      <input type="radio" id="checkboxDanger2" name="category" value="maintenance"  change="radioChangeHandler($event)" [(ngModel)]="order.categoryOfImprovement">
+                      <label for="checkboxDanger2"> &nbsp;Maintenance
                       </label>
                     </div>
                   </div>
                 </div>
+              </div>
+              <div class="row">
                 <div class="col-sm-6">
-                  <!-- radio -->
                   <div class="form-group clearfix">
-                    <div class="icheck-success d-inline">
-                      <input type="radio" name="r3" checked id="radioSuccess1">
-                      <label for="radioSuccess1">
+                    
+                    
+                    <div class="icheck-danger d-inline">
+                      <input type="radio" id="checkboxDanger2" name="category" value="motivation"  change="radioChangeHandler($event)" [(ngModel)]="order.categoryOfImprovement">
+                      <label for="checkboxDanger2"> &nbsp; Motivation
                       </label>
                     </div>
-                    <div class="icheck-success d-inline">
-                      <input type="radio" name="r3" id="radioSuccess2">
-                      <label for="radioSuccess2">
+
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group clearfix">
+                    
+                  
+                    <div class="icheck-danger d-inline">
+                      <input type="radio" id="checkboxDanger2" name="category" value="ease of work"  change="radioChangeHandler($event)" [(ngModel)]="order.categoryOfImprovement">
+                      <label for="checkboxDanger2"> &nbsp;Ease of work
                       </label>
                     </div>
-                    <div class="icheck-success d-inline">
-                      <input type="radio" name="r3" disabled id="radioSuccess3">
-                      <label for="radioSuccess3">
-                        Success radio
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group clearfix">
+                    <div class="icheck-danger d-inline">
+                      <input type="radio" id="checkboxDanger2" name="category" value="machines"  change="radioChangeHandler($event)" [(ngModel)]="order.categoryOfImprovement">
+                      <label for="checkboxDanger2"> &nbsp;Machines
+                      </label>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group clearfix">
+                    <div class="icheck-danger d-inline">
+                      <input type="radio" id="checkboxDanger2" name="category" value="material"  change="radioChangeHandler($event)" [(ngModel)]="order.categoryOfImprovement">
+                      <label for="checkboxDanger2"> &nbsp;Material
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group clearfix">
+                    <div class="icheck-danger d-inline">
+                      <input type="radio" id="checkboxDanger2" name="category" value="communication"  [(ngModel)]="order.categoryOfImprovement" change="radioChangeHandler($event)">
+                      <label for="checkboxDanger2"> &nbsp; Communication
+                      </label>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group clearfix">
+                    <div class="icheck-danger d-inline">
+                      <input type="radio" id="checkboxDanger2" name="category" value="other"  change="radioChangeHandler($event)" [(ngModel)]="order.categoryOfImprovement">
+                      <label for="checkboxDanger2"> &nbsp;...
                       </label>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <!-- /.card-body -->
-            
-            <div class="card-footer">
-              Many more skins available. <a href="http://fronteed.com/iCheck/">Documentation</a>
-            </div>
           </div>
-          <div class="card card-primary">
+          <div class="card card-default">
             <div class="card-header">
-              <h3 class="card-title">Date picker</h3>
+              <h3 class="card-title"></h3>
             </div>
             <div class="card-body">
-              <!-- Date range -->
+             
               <div class="form-group">
-                <label for="exampleInputFile">File input</label>
+                <label for="exampleInputFile">Investment/Benefits</label>
+                <div class="input-group">
+                    <input type="text" name="benefits" class="form-control" id="exampleInputPassword1"  [(ngModel)]="order.benefits" required #benefits="ngModel"
+                    [class.is-invalid]="(benefits.invalid && benefits.touched)" >
+                    <small  class="text-danger" [class.d-none]="(benefits.valid || benefits.untouched)">Benefits is required field</small>                  </div>
+</div>
+
+
+               
+                <div class="form-group">
+                  <label>Areas where is applicable:</label>
+  
+                  <div class="input-group">
+                    <div class="input-group my-colorpicker2">
+                      <input type="text" name="area" class="form-control" id="exampleInputPassword1"  [(ngModel)]="order.area" required #area="ngModel"
+                      [class.is-invalid]="(area.invalid && area.touched)" >
+                      <small  class="text-danger" [class.d-none]="(area.valid || area.untouched)">Area is required field</small>                    </div>
+                  </div>
+                </div>
+             
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+          <!-- /.card -->
+          <div class="card card-default">
+            <div class="card-header">
+<h3 class="card-title"><b>Complete Documentation project</b></h3>           
+ </div>
+            <div class="card-body">
+              <div class="input-group">
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="exampleInputFile">
+                  <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                </div>
+                <div class="input-group-append">
+                  <span class="input-group-text" id="">Upload</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.row -->
+      <div class="row">
+        <div class="col-sm-6">
+
+          <div class="card card-dark">
+            <div class="card-header">
+              <h3 class="card-title">Video/Picture Before</h3>
+            </div>
+            <div class="card-body">
+              <div class="input-group">
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="exampleInputFile">
+                  <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                </div>
+                <div class="input-group-append">
+                  <span class="input-group-text" id="">Upload</span>
+                </div>
+              </div>
+            </div>             
+             
+              
+              
+            
+          </div>
+        </div>
+        <div class="col-sm-6">
+
+          <div class="card card-dark">
+            <div class="card-header">
+              <h3 class="card-title">Video/Picture After</h3>
+            </div>
+             
+              <div class="card-body">
                 <div class="input-group">
                   <div class="custom-file">
                     <input type="file" class="custom-file-input" id="exampleInputFile">
@@ -291,58 +370,17 @@
                     <span class="input-group-text" id="">Upload</span>
                   </div>
                 </div>
-             
-            </div>
-
-              <!-- Date and time range -->
-              <div class="form-group">
-                <label>Date and time range:</label>
-
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="far fa-clock"></i></span>
-                  </div>
-                  <input type="text" class="form-control float-right" id="reservationtime">
-                </div>
-                <!-- /.input group -->
               </div>
-              <!-- /.form group -->
-
-              <!-- Date and time range -->
-              <div class="form-group">
-                <label>Date range button:</label>
-
-                <div class="input-group">
-                  <button type="button" class="btn btn-default float-right" id="daterange-btn">
-                    <i class="far fa-calendar-alt"></i> Date range picker
-                    <i class="fas fa-caret-down"></i>
-                  </button>
-                </div>
-              </div>
-              <!-- /.form group -->
-
-            </div>
-            <!-- /.card-body -->
+              
+              
+            
           </div>
-          <!-- /.card -->
-          <!-- /.card -->
-
-          <!-- Bootstrap Switch -->
-          <div class="card card-secondary">
-            <div class="card-header">
-              <h3 class="card-title">Bootstrap Switch</h3>
-            </div>
-            <div class="card-body">
-              <input type="checkbox" name="my-checkbox" checked data-bootstrap-switch>
-              <input type="checkbox" name="my-checkbox" checked data-bootstrap-switch data-off-color="danger" >
-            </div>
-          </div>
-          <!-- /.card -->
         </div>
-        <!-- /.col (right) -->
       </div>
-      <!-- /.row -->
+
     </div><!-- /.container-fluid -->
+    <input type="submit" value="Add new order" class="btn btn-primary float-right" [disabled]="addOrderForm.invalid" data-toggle="modal" data-target="#modal">
+  </form>
   </section>
   <!-- /.content -->
 </div>

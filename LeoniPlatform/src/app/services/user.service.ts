@@ -10,4 +10,5 @@ public findAllUsers ():Observable<any>{return this._http.get<any>("http://localh
 public deleteUser(id: number): Observable<any> {
     return this._http.delete(`http://localhost:9090/deleteuser/${id}`, { responseType: 'text' });
   }
+ 
 }

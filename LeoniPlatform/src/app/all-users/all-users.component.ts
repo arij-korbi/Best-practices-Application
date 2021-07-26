@@ -13,7 +13,7 @@ export class AllUsersComponent implements OnInit {
   @Input()userId:number;
 
   users:User [];
-  constructor(private  _userService:UserService ) {this.users=[]; this.userId=0;}
+  constructor(private  _userService:UserService,private router:Router ) {this.users=[]; this.userId=0;}
 
 
 findAllUsers(){this._userService.findAllUsers().subscribe(
@@ -35,4 +35,5 @@ findAllUsers(){this._userService.findAllUsers().subscribe(
 
       )
     }
+    editProfile(id:number){    this.router.navigate(['/editprofile',id]);}
 }
