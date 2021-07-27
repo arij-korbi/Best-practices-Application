@@ -1,0 +1,89 @@
+<div class="content-wrapper">
+
+    <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-3">
+            </div>
+            <div class="col-sm-4">
+              <h1></h1>
+            </div>
+            <div class="col-sm-3">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Users</a></li>
+                <li class="breadcrumb-item active">Edit user</li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+    
+      <!-- Main content -->
+      <section class="content">
+        <form #addForm="ngForm" (ngSubmit)="onSubmit(addForm)" >
+    
+        <div class="row">
+            <div class="col-md-3">
+            </div>
+          <div class="col-md-6">
+            <div class="card card-dark">
+              <div class="card-header">
+                <h3 class="card-title">General</h3>
+    
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                    <i class="fas fa-minus"></i></button>
+                </div>
+              </div>
+              <div class="card-body">
+                <small  class="text-danger">{{msg}}</small>
+    
+                <div class="form-group">
+                  <label for="inputName">Username</label>
+                  <input type="text" name="username" value="user.userName" class="form-control" id="exampleInputPassword1"  [(ngModel)]="user.userName" required #username="ngModel"
+                  >
+               
+                </div>  
+                 <div class="form-group">
+                  <label for="inputName">Email</label>
+                  <input type="email" name="email" class="form-control" value="user.emailId" id="exampleInputEmail1" aria-describedby="emailHelp"  [(ngModel)]="user.emailId" 
+                  disabled> 
+           
+                </div>   <div class="form-group">
+                  <label for="inputName">Password</label>
+                  <input type="password" name="password"  value="user.password" class="form-control" id="exampleInputPassword1"  [(ngModel)]="user.password" required #password="ngModel"
+                  [class.is-invalid]="(password.invalid && password.touched)" >
+                  <small  class="text-danger" [class.d-none]="(password.valid || password.untouched)">Password is required field</small>
+                </div>
+                <div class="form-group">
+                  <label for="inputName">Confirm password</label>
+                  <input type="password" name="cpassword" class="form-control" value="user.password" id="exampleInputPassword1"  [(ngModel)]="passwordc" required #cpassword="ngModel"
+                  [class.is-invalid]="(cpassword.invalid && cpassword.touched)" >
+                  <small  class="text-danger" [class.d-none]="(cpassword.value ==password.value)|| cpassword.untouched">Password & password confirm must be same</small>
+              </div>
+              <div class="form-group">
+                <label for="inputName"   required>Profile</label>
+                <select class="form-control" name="profile" [(ngModel)]="user.profile">
+                <option *ngFor="let profile of profiles" [value]="profile.profileName">{{profile.profileName}}</option>
+                  
+                </select>
+            </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+           
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+          </div>
+          
+          <div class="col-md-6">        <input type="submit" value="Add new user" class="btn btn-primary float-right" [disabled]="addForm.invalid" data-toggle="modal" data-target="#modal">
+          &nbsp;   &nbsp;</div>
+    
+        </div>
+    </form>
+    
+      </section>
+    </div>

@@ -31,9 +31,11 @@ findAllUsers(){this._userService.findAllUsers().subscribe(
         data=>{console.log(data);
           this.findAllUsers();
         },
-        error=>{console.log("exception occured");}
+        error=>{console.log("exception occured");
+     }
 
       )
     }
-    editProfile(id:number){    this.router.navigate(['/editprofile',id]);}
+    updateUser(id:number){    this.router.navigate(['/updateuser',id]);}
+
 }

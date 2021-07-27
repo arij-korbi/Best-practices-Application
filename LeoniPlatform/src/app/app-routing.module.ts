@@ -1,3 +1,4 @@
+import { EditUserComponent } from './edit-user/edit-user.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { AllProfilesComponent } from './all-profiles/all-profiles.component';
 import { OwnPracticeComponent } from './own-practice/own-practice.component';
@@ -10,6 +11,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BestPracticesComponent } from './best-practices/best-practices.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
 import { AddNewProfileComponent } from './add-new-profile/add-new-profile.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {path:'ownpractices',component:OwnPracticeComponent},
@@ -21,7 +23,11 @@ const routes: Routes = [
   {path:'uploadfile',component:UploadFileComponent},
   {path:'addprofile',component:AddNewProfileComponent},
   {path:'allprofiles',component:AllProfilesComponent},
-  {path:'updateprofile/:id',component:EditProfileComponent}
+  {path:'updateprofile/:id',component:EditProfileComponent},
+  {path:'updateuser/:id',component:EditUserComponent},
+  {path:'login',component:LoginComponent}
+
+
 
 
 

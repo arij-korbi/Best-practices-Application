@@ -1,3 +1,4 @@
+import { UserService } from './services/user.service';
 import { AllProfilesComponent } from './all-profiles/all-profiles.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,6 +19,8 @@ import { HttpEvent } from '@angular/common/http';
 import { UploadFileComponent } from './upload-file/upload-file.component';
 import { AddNewProfileComponent } from './add-new-profile/add-new-profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +36,9 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     UploadFileComponent,
     AddNewProfileComponent,
     AllProfilesComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    EditUserComponent,
+    LoginComponent
 
   ],
   imports: [
@@ -43,7 +48,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     HttpClientModule
     
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

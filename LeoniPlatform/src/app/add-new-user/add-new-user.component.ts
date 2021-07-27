@@ -28,8 +28,9 @@ constructor(private _userService:UserService,private _router:Router,private _pro
       error=>{console.log("exception occured");
       })}
   addUser(form:NgForm){this._userService.addUser(this.user).subscribe(
-    data=>{console.log("response received");
+    data=>{console.log(data);      console.log("response received");
     this.msg="you have successfully added a user";
+
     this.goToUsersList();
    },
     error=>{console.log("exception occured");

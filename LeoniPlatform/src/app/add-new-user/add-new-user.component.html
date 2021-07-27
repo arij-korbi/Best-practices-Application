@@ -69,7 +69,7 @@
           <div class="form-group">
             <label for="inputName"   required>Profile</label>
             <select class="form-control" name="profile" [(ngModel)]="user.profile">
-            <option *ngFor="let profile of profiles" value="arij">{{profile.profileName}}</option>
+            <option *ngFor="let profile of profiles" [value]="profile.profileName">{{profile.profileName}}</option>
               
             </select>
         </div>

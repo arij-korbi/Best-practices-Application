@@ -1,0 +1,66 @@
+<body class="hold-transition login-page">
+
+<div class="login-box">
+    <div class="login-logo">
+      <a href="../../index2.html"><b>Admin</b>LTE</a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="card">
+      <div class="card-body login-card-body">
+        <p class="login-box-msg">Sign in to start your session</p>
+        <small  class="text-danger">{{msg}}</small>
+
+        <form #addForm="ngForm" (ngSubmit)="login(addForm)">
+          <div class="input-group mb-3">
+         
+      
+            <input type="email" class="form-control" placeholder="Email" name="email"  [(ngModel)]="user.emailId" required #email="ngModel" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [class.is-invalid]="email.invalid && email.touched">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+            <div *ngIf="email.errors &&(email.touched && email.invalid)">
+                <small class="text-danger" *ngIf="email.errors.required">Email is required field</small>
+                <small class="text-danger" *ngIf="email.errors.pattern">Enter the valid email Id</small>
+              </div>
+          </div>
+          <div class="input-group mb-3">
+            <input type="password" class="form-control" placeholder="Password"name="password" class="form-control" id="exampleInputPassword1"  [(ngModel)]="user.password" required #password="ngModel"
+            [class.is-invalid]="(password.invalid && password.touched)" >
+            <small  class="text-danger" [class.d-none]="(password.valid || password.untouched)">Password is required field</small>>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-8">
+              <div class="icheck-primary">
+                <input type="checkbox" id="remember">
+                <label for="remember">
+                  Remember Me
+                </label>
+              </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-4">
+              <button type="submit" class="btn btn-primary btn-block" [disabled]="addForm.invalid" >Sign In</button>
+            </div>
+            <!-- /.col -->
+          </div>
+        </form>
+  
+       
+        <!-- /.social-auth-links -->
+  
+        <p class="mb-1">
+          <a href="forgot-password.html">I forgot my password</a>
+        </p>
+        
+      </div>
+      <!-- /.login-card-body -->
+    </div>
+  </div>
+  </body>
