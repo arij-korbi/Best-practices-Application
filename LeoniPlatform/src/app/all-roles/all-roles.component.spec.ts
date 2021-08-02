@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AllProfilesComponent } from './all-profiles.component';
+import { AllRolesComponent } from './all-roles.component';
 
 describe('AllProfilesComponent', () => {
-  let component: AllProfilesComponent;
-  let fixture: ComponentFixture<AllProfilesComponent>;
+  let component: AllRolesComponent;
+  let fixture: ComponentFixture<AllRolesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AllProfilesComponent ]
+      declarations: [ AllRolesComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AllProfilesComponent);
+    fixture = TestBed.createComponent(AllRolesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

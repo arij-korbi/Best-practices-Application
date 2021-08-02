@@ -1,6 +1,8 @@
 
-<div class="wrapper">
-  <app-navbar *ngIf="isAuth"></app-navbar>
-   <app-sidebar *ngIf="isAuth"></app-sidebar>
+<div class="wrapper" >
+
+  <app-navbar *ngIf="isLoggedIn" ></app-navbar>
+   <app-sidebar *ngIf="isLoggedIn" *ngFor="let role of roles" [rolee]="arij" ></app-sidebar>
+
 <router-outlet></router-outlet>
 </div>

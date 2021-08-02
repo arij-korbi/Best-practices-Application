@@ -1,4 +1,8 @@
+import { AuthService } from './../services/auth.service';
 import { NgForm } from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { TokenStorageService } from '../services/tokenStorage.service';
+
 import { UserService } from './../services/user.service';
 import { Router } from '@angular/router';
 import { User } from './../classes/user';
@@ -10,29 +14,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 user=new User();
+
 msg='';
-isAuth:boolean=false;
+isLoggedIn = false;
+isLoginFailed = false;
+roles: string[] = [];
 
-constructor(private _userService:UserService,private _router:Router) { }
+constructor(private tokenStorage: TokenStorageService,private _authService:AuthService,private _router:Router) { }
   ngOnInit(): void {
-  }
+    if (this.tokenStorage.getToken()) {
+      this.isLoggedIn = true;
+      this.roles = this.tokenStorage.getUser().roles;
+  }}
 
-  login(form:NgForm){this._userService.login(this.user).subscribe(
+  signIn(form:NgForm){this._authService.login(this.user).subscribe(
     data=>{console.log(data);     
-       console.log("response received");
-    this.msg="loggedIn";
-    this.isAuth=this._userService.isAuth;
-    console.log(this.isAuth);
+      this.tokenStorage.saveToken(data.accessToken);
+      this.tokenStorage.saveUser(data);
 
-    this.goToSession();
+      this.isLoginFailed = false;
+      this.isLoggedIn = true;
+      this.roles = this.tokenStorage.getUser().roles;
+      this.reloadPage();
+
    },
     error=>{console.log("exception occured");
-        this.msg="t2akad";
+    this.msg= error.error.message;
+    this.isLoginFailed = true;
 
     }
     )}
-    goToSession(){
-      this._router.navigate(['/allusers']);
+    reloadPage(): void {
+      window.location.reload();
     }
-
 }

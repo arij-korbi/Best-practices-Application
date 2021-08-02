@@ -1,7 +1,6 @@
 import { Observable } from 'rxjs';
 import { UserService } from './../services/user.service';
 import { Component, OnInit } from '@angular/core';
-import { User } from '../classes/user';
 import { Input } from '@angular/core';
 import { Router } from '@angular/router';
 @Component({
@@ -12,12 +11,13 @@ import { Router } from '@angular/router';
 export class AllUsersComponent implements OnInit {
   @Input()userId:number;
 
-  users:User [];
+  users:any [];
   constructor(private  _userService:UserService,private router:Router ) {this.users=[]; this.userId=0;}
 
 
 findAllUsers(){this._userService.findAllUsers().subscribe(
   data=>{console.log("response received");
+  console.log(data);
   this.users=data;
   console.log(this.users);
    },

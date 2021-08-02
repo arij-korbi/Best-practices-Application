@@ -1,4 +1,4 @@
-<div class="content-wrapper">
+ <div class="content-wrapper">
 
     <section class="content-header">
         <div class="container-fluid">
@@ -15,10 +15,9 @@
               </ol>
             </div>
           </div>
-        </div><!-- /.container-fluid -->
+        </div>
       </section>
     
-      <!-- Main content -->
       <section class="content">
         <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     
@@ -38,9 +37,9 @@
               <div class="card-body">
                 <small  class="text-danger">{{msg}}</small>
                 <div class="form-group">
-                    <label for="inputName">Profile name</label>
-                    <input type="text" name="profile" class="form-control" id="exampleInputPassword1"  value="profile.profileName" [(ngModel)]="profile.profileName" required #profileName="ngModel"
-                    [class.is-invalid]="(profileName.invalid && profileName.touched)" disabled >
+                    <label for="inputName">Rolename</label>
+                    <input type="text" name="profile" class="form-control" id="exampleInputPassword1"  value="role.name" [(ngModel)]="role.name" required #name="ngModel"
+                    [class.is-invalid]="(name.invalid && name.touched)" disabled >
  
                  
                   </div> 
@@ -51,21 +50,21 @@
                       
                         <div class="col-sm-1">
                           <div class="icheck-primary d-inline">
-                            <input type="checkbox" id="checkboxPrimary1"  name="profileManagement" value="true" change="radioChangeHandlerProfile($event)" [(ngModel)]="profile.profileManagement" >
+                            <input type="checkbox" id="checkboxPrimary1"  name="RoleManagement" value="true" change="radioChangeHandlerRole($event)" [(ngModel)]="role.roleManagement" >
                             <label for="checkboxPrimary1">
                             </label>
                           </div>
                         </div>
                         <div class="col-sm-6">
                           <h6 for="checkboxPrimary1">
-                            Profile management
+                            Role management
                            </h6>
                         </div>
                       </div>   
                       <div class="row">
                         <div class="col-sm-1">
                           <div class="icheck-primary d-inline">
-                            <input type="checkbox" id="checkboxPrimary1"  name="userManagement" value="true" change="radioChangeHandlerUser($event)" [(ngModel)]="profile.userManagement" >
+                            <input type="checkbox" id="checkboxPrimary1"  name="userManagement" value="true" change="radioChangeHandlerUser($event)" [(ngModel)]="role.userManagement" >
                             <label for="checkboxPrimary1">
                             </label>
                           </div>
@@ -81,7 +80,7 @@
                         
                         <div class="col-sm-1">
                           <div class="icheck-primary d-inline">
-                            <input type="checkbox" id="checkboxPrimary3" name="orderManagement" value="true" change="radioChangeHandlerOrder($event)" [(ngModel)]="profile.orderManagement" >
+                            <input type="checkbox" id="checkboxPrimary3" name="orderManagement" value="true" change="radioChangeHandlerOrder($event)" [(ngModel)]="role.orderManagement" >
                           </div>
                         </div>
                         <div class="col-sm-6">
@@ -97,9 +96,7 @@
                     
            
             </div>
-            <!-- /.card-body -->
             </div>
-            <!-- /.card -->
           </div>
            
         </div>
@@ -114,4 +111,4 @@
     </form>
     
       </section>
-    </div>
+    </div> 

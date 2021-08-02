@@ -1,15 +1,17 @@
 export class User{
     id:number;
-    emailId:string;
-    userName:string;
+    email:string;
+    username:string;
     password:string;
-    profile:string;
+  role:any[];
+  roles:any[]
     constructor(){
         this.id=0;
-        this.emailId="";
-        this.userName="";
+        this.email="";
+        this.username="";
         this.password="";
-        this.profile="";
+        this.role=[];
+        this.roles=[];
     }
     
     }

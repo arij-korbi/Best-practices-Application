@@ -1,8 +1,8 @@
+import { RoleService } from './../services/role.service';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { Profile } from './../classes/profile';
-import { ProfileService } from './../services/profile.service';
+import { Role } from'../classes/Role'
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
@@ -11,27 +11,27 @@ import { ProfileService } from './../services/profile.service';
 export class EditProfileComponent implements OnInit {
 id:number;
 msg:String="";
-profile: Profile=new Profile();
-  constructor(private _profileService:ProfileService, private router:Router, private route:ActivatedRoute) { this.id=0;}
+role=new Role();
+  constructor(private _roleService:RoleService, private router:Router, private route:ActivatedRoute) { this.id=0;}
 
   ngOnInit(): void {
     this.id=this.route.snapshot.params['id'];
-  this._profileService.findProfileById(this.id).subscribe(data=>{this.profile.profileName=data.profileName;  this.profile.orderManagement="true";
-  this.profile.profileManagement="true";
-  this.profile.userManagement="true";}
+  this._roleService.findRoleById(this.id).subscribe(data=>{this.role.name=data.name;  this.role.orderManagement="true";
+  this.role.roleManagement="true";
+  this.role.userManagement="true";}
     , error=>console.log(error));
   
   }
-  onSubmit(form:NgForm){this._profileService.updateProfile(this.id,this.profile).subscribe(
+  onSubmit(form:NgForm){this._roleService.updateRole(this.id,this.role).subscribe(
 data=>{
   console.log(data);
   this.goToProfilesList();
 }
 ,error=>{console.log(error);
-this.msg="This profile name already exists";}
+this.msg="This role name already exists";}
   );}
   goToProfilesList(){
-    this.router.navigate(['/allprofiles']);
+    this.router.navigate(['/allroles']);
   }
 
 }

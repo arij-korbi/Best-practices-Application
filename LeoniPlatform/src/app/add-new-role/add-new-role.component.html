@@ -1,4 +1,4 @@
-<div class="content-wrapper">
+ <div class="content-wrapper">
 
     <section class="content-header">
         <div class="container-fluid">
@@ -10,15 +10,14 @@
             </div>
             <div class="col-sm-3">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Profiles</a></li>
-                <li class="breadcrumb-item active">Add profile</li>
+                <li class="breadcrumb-item"><a href="#">Roles</a></li>
+                <li class="breadcrumb-item active">Add role</li>
               </ol>
             </div>
           </div>
-        </div><!-- /.container-fluid -->
-      </section>
+        </div>
+      </section> 
     
-      <!-- Main content -->
       <section class="content">
         <form (ngSubmit)="addProfile(f)" #f="ngForm">
     
@@ -38,11 +37,11 @@
               <div class="card-body">
                 <small  class="text-danger">{{msg}}</small>
                 <div class="form-group">
-                    <label for="inputName">Profile name</label>
-                    <input type="text" name="profile" class="form-control" id="exampleInputPassword1"  [(ngModel)]="profile.profileName" required #profileName="ngModel"
-                    [class.is-invalid]="(profileName.invalid && profileName.touched)" >
+                    <label for="inputName">Role name</label>
+                    <input type="text" name="role" class="form-control" id="exampleInputPassword1"  [(ngModel)]="role.name" required #name="ngModel"
+                    [class.is-invalid]="(name.invalid && name.touched)" >
  
-              <small  class="text-danger" [class.d-none]="(profileName.valid || profileName.untouched)">Profile name is required field</small>
+              <small  class="text-danger" [class.d-none]="(name.valid || name.untouched)">Role name is required field</small>
                  
                   </div> 
                   <div class="form-group">
@@ -52,21 +51,21 @@
                       
                         <div class="col-sm-1">
                           <div class="icheck-primary d-inline">
-                            <input type="checkbox" id="checkboxPrimary1"  name="profileManagement" value="true" change="radioChangeHandlerProfile($event)" [(ngModel)]="profile.profileManagement" >
+                            <input type="checkbox" id="checkboxPrimary1"  name="roleManagement" value="true" change="radioChangeHandlerRole($event)" [(ngModel)]="role.roleManagement" >
                             <label for="checkboxPrimary1">
                             </label>
                           </div>
                         </div>
                         <div class="col-sm-6">
                           <h6 for="checkboxPrimary1">
-                            Profile management
+                            Role management
                            </h6>
                         </div>
                       </div>   
                       <div class="row">
                         <div class="col-sm-1">
                           <div class="icheck-primary d-inline">
-                            <input type="checkbox" id="checkboxPrimary1"  name="userManagement" value="true" change="radioChangeHandlerUser($event)" [(ngModel)]="profile.userManagement" >
+                            <input type="checkbox" id="checkboxPrimary1"  name="userManagement" value="true" change="radioChangeHandlerUser($event)" [(ngModel)]="role.userManagement" >
                             <label for="checkboxPrimary1">
                             </label>
                           </div>
@@ -82,7 +81,7 @@
                         
                         <div class="col-sm-1">
                           <div class="icheck-primary d-inline">
-                            <input type="checkbox" id="checkboxPrimary3" name="orderManagement" value="true" change="radioChangeHandlerOrder($event)" [(ngModel)]="profile.orderManagement" >
+                            <input type="checkbox" id="checkboxPrimary3" name="orderManagement" value="true" change="radioChangeHandlerOrder($event)" [(ngModel)]="role.orderManagement" >
                           </div>
                         </div>
                         <div class="col-sm-6">
@@ -98,9 +97,7 @@
                     
            
             </div>
-            <!-- /.card-body -->
             </div>
-            <!-- /.card -->
           </div>
            
         </div>
@@ -115,4 +112,4 @@
     </form>
     
       </section>
-    </div>
+    </div>  

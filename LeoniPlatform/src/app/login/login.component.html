@@ -2,7 +2,7 @@
 
 <div class="login-box">
     <div class="login-logo">
-      <a href="../../index2.html"><b>Admin</b>LTE</a>
+      <a></a>
     </div>
     <!-- /.login-logo -->
     <div class="card">
@@ -10,20 +10,18 @@
         <p class="login-box-msg">Sign in to start your session</p>
         <small  class="text-danger">{{msg}}</small>
 
-        <form #addForm="ngForm" (ngSubmit)="login(addForm)">
+        <form #f="ngForm" (ngSubmit)="signIn(f)"*ngIf="!isLoggedIn" >
           <div class="input-group mb-3">
          
       
-            <input type="email" class="form-control" placeholder="Email" name="email"  [(ngModel)]="user.emailId" required #email="ngModel" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [class.is-invalid]="email.invalid && email.touched">
+            <input type="text" class="form-control" placeholder="username" name="email"  [(ngModel)]="user.username" required #username="ngModel"  [class.is-invalid]="username.invalid && username.touched">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope"></span>
               </div>
             </div>
-            <div *ngIf="email.errors &&(email.touched && email.invalid)">
-                <small class="text-danger" *ngIf="email.errors.required">Email is required field</small>
-                <small class="text-danger" *ngIf="email.errors.pattern">Enter the valid email Id</small>
-              </div>
+            <small  class="text-danger" [class.d-none]="(username.valid || username.untouched)">username is required field</small>>
+
           </div>
           <div class="input-group mb-3">
             <input type="password" class="form-control" placeholder="Password"name="password" class="form-control" id="exampleInputPassword1"  [(ngModel)]="user.password" required #password="ngModel"
@@ -46,13 +44,23 @@
             </div>
             <!-- /.col -->
             <div class="col-4">
-              <button type="submit" class="btn btn-primary btn-block" [disabled]="addForm.invalid" >Sign In</button>
+              <button type="submit" class="btn btn-primary btn-block" [disabled]="f.invalid" >Sign In</button>
             </div>
             <!-- /.col -->
+          </div>  <div class="form-group">
+            <div
+              class="alert alert-danger"
+              role="alert"
+              *ngIf="f.submitted && isLoginFailed"
+            >
+              Login failed: {{ msg }}
+            </div>
           </div>
         </form>
-  
-       
+    
+        <div class="alert alert-success" *ngIf="isLoggedIn">
+          Logged in as {{ roles }}.
+        </div>
         <!-- /.social-auth-links -->
   
         <p class="mb-1">

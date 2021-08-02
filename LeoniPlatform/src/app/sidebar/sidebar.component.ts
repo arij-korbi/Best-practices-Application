@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { UserService } from './../services/user.service';
+import { Component, OnInit,Input } from '@angular/core';
+import { Role } from '../classes/Role';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.sass']
 })
 export class SidebarComponent implements OnInit {
-
-  constructor() { }
+  @Input() rolee=String;
+ 
+  constructor(private  _userService:UserService ) {}
 
   ngOnInit(): void {
+    
   }
 
 }

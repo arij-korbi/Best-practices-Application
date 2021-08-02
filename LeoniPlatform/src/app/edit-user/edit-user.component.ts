@@ -1,9 +1,8 @@
+import { RoleService } from './../services/role.service';
 import { User } from './../classes/user';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from './../services/user.service';
 import { Component, OnInit } from '@angular/core';
-import { ProfileService } from '../services/profile.service';
-import { Profile } from '../classes/profile';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -16,11 +15,11 @@ id:number;
   passwordc="";
   user=new User();
 msg='';
-profiles:Profile[];
-constructor(private _userService:UserService,private _router:Router,private _profileService:ProfileService,private route:ActivatedRoute) {this.profiles=[]; this.id=0;}
+ roles:any[];
+constructor(private _userService:UserService,private _router:Router,private route:ActivatedRoute,private _roleService:RoleService) { this.id=0;this.roles=[];}
 
   ngOnInit(): void {
-    this.findAllProfiles();
+     this.findAllRoles();
     this.id=this.route.snapshot.params['id'];
     this._userService.findUserById(this.id).subscribe(data=>{this.user=data; 
       console.log(this.user);
@@ -28,14 +27,15 @@ constructor(private _userService:UserService,private _router:Router,private _pro
       , error=>console.log(error));
 
   }
-  findAllProfiles(){this._profileService.findAllProfiles().subscribe(
+  findAllRoles(){this._roleService.findAllRoles().subscribe(
     data=>{console.log("response received");
-    this.profiles=data;
-    console.log(this.profiles);
+    this.roles=data;
+    console.log(this.roles);
      },
       error=>{console.log("exception occured");
       })}
-      onSubmit(form: NgForm){this._userService.updateUser(this.id,this.user).subscribe(
+      onSubmit(form: NgForm){    this.user.role=[this.user.role];
+        this._userService.updateUser(this.id,this.user).subscribe(
         data=>{
           console.log(data);
           this.goToUsersList();

@@ -1,10 +1,11 @@
-import { ProfileService } from './../services/profile.service';
+import { RoleService } from './../services/role.service';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { User } from '../classes/user';
 import { NgForm } from '@angular/forms';
+import { NgModel } from '@angular/forms';
 import { Router } from '@angular/router'
-import { Profile } from '../classes/profile';
+import { Role } from '../classes/Role';
 @Component({
   selector: 'app-add-new-user',
   templateUrl: './add-new-user.component.html',
@@ -14,27 +15,30 @@ export class AddNewUserComponent implements OnInit {
   passwordc="";
   user=new User();
 msg='';
-profiles:Profile[];
-constructor(private _userService:UserService,private _router:Router,private _profileService:ProfileService) {this.profiles=[]; }
+roles:any[];
+role:String;
+constructor(private _userService:UserService,private _router:Router,private _roleService:RoleService) {this.roles=[];this.role=""; }
 
   ngOnInit(): void {
-    this.findAllProfiles();
+     this.findAllRoles();
   }
-  findAllProfiles(){this._profileService.findAllProfiles().subscribe(
+  findAllRoles(){this._roleService.findAllRoles().subscribe(
     data=>{console.log("response received");
-    this.profiles=data;
-    console.log(this.profiles);
+    this.roles=data;
+    console.log(this.roles);
      },
-      error=>{console.log("exception occured");
+      error=>{console.log(error);
       })}
-  addUser(form:NgForm){this._userService.addUser(this.user).subscribe(
+  addUser(form:NgForm){
+    console.log(this.user.role);
+    this.user.role=[this.user.role];
+    this._userService.addUser(this.user).subscribe(
     data=>{console.log(data);      console.log("response received");
     this.msg="you have successfully added a user";
-
     this.goToUsersList();
    },
-    error=>{console.log("exception occured");
-        this.msg="this profile already exists";
+    error=>{console.log(error);
+        this.msg=error;
 
     }
     )}
