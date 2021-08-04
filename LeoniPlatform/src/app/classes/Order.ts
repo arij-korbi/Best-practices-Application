@@ -10,13 +10,13 @@ export class Order{
     categoryOfImprovement:string;
      benefits:string;
     area:string;
-     documentation:string;
+     idDocumentation:number;
   number:string;
      email:string;
     discriptionB:string;
      discriptionA:string;
      status:string;
-
+files:File[];
 constructor(){
 
         this.id = 0;
@@ -29,13 +29,13 @@ constructor(){
         this.categoryOfImprovement = "";
         this.benefits = "";
         this.area = "";
-        this.documentation = "";
+        this.idDocumentation =0;
         this.number = "";
         this.email = "";
         this.discriptionB = "";
         this.discriptionA = "";
         this.status=status;
-
+this.files=[];
     
 }
 

@@ -1,8 +1,12 @@
+import { UploadFileComponent } from './upload-file/upload-file.component';
+import { OrderGuard } from './services/orderManagment-auth.service';
+import { AddNewOrderComponent } from './add-new-order/add-new-order.component';
+import { AllOrdersComponent } from './all-orders/all-orders.component';
+import { UserGuard } from './services/userManagement-guard.service';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { AddNewRoleComponent } from './add-new-role/add-new-role.component';
 import { AllRolesComponent } from './all-roles/all-roles.component';
-
 import { SuccessAddComponent } from './success-add/success-add.component';
 import { AddNewUserComponent } from './add-new-user/add-new-user.component';
 import { AllUsersComponent } from './all-users/all-users.component';
@@ -11,19 +15,21 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './services/auth-guard.service';
+import { RoleGuard } from './services/roleManagement-guard.service';
 
 const routes: Routes = [
   // {path:'ownpractices',component:OwnPracticeComponent},
-  // {path:'allpractices',component:BestPracticesComponent},
-  // {path:'addpractice',component:AddNewPracticeComponent},
-  {path:'allusers',component:AllUsersComponent},
-  {path:'addnewuser',component:AddNewUserComponent},
-  {path:'success',component:SuccessAddComponent},
-  {path:'addrole',component:AddNewRoleComponent},
-   {path:'allroles',component:AllRolesComponent},
-     // {path:'uploadfile',component:UploadFileComponent},
-   {path:'updaterole/:id',component:EditProfileComponent},
-   {path:'updateuser/:id',component:EditUserComponent},
+  {path:'allorders',canActivate:[AuthGuard,OrderGuard],component:AllOrdersComponent},
+  {path:'addorder',canActivate:[AuthGuard,OrderGuard],component:AddNewOrderComponent},
+  {path:'allusers',canActivate:[AuthGuard,UserGuard],component:AllUsersComponent},
+  {path:'adduser',canActivate:[AuthGuard,UserGuard],component:AddNewUserComponent},
+  {path:'success',canActivate:[AuthGuard],component:SuccessAddComponent},
+  {path:'addrole',canActivate:[AuthGuard,RoleGuard],component:AddNewRoleComponent},
+   {path:'allroles',canActivate:[AuthGuard,RoleGuard],component:AllRolesComponent},
+      {path:'uploadfile',component:UploadFileComponent},
+   {path:'updaterole/:id',canActivate:[AuthGuard],component:EditProfileComponent},
+   {path:'updateuser/:id',canActivate:[AuthGuard],component:EditUserComponent},
   {path:'login',component:LoginComponent}
 
 

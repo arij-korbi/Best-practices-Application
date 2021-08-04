@@ -2,9 +2,9 @@
  <aside class="main-sidebar sidebar-dark-primary elevation-4" >
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="assets/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      <img src="assets/user3.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light"><b>{{username}}</b> as <b>{{role.name}}</b></span>
     </a>
 
     <!-- Sidebar -->
@@ -12,10 +12,9 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">My profile</a>
         </div>
       </div>
 
@@ -24,7 +23,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview menu-open">
+          <li class="nav-item has-treeview menu-open" *ngIf="showRoleManagement">
             <a  class="nav-link active"> 
               <i class="nav-icon fa fa-tasks"></i>
               <p>
@@ -63,7 +62,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview menu-open">
+          <li class="nav-item has-treeview menu-open" *ngIf="showUserManagement">
             <a  class="nav-link active"> 
               <i class="nav-icon fa fa-users"></i>
               <p>
@@ -73,7 +72,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item" routerLinkActive="active">
-                <a routerLink="/addnewuser" class="nav-link">
+                <a routerLink="/adduser" class="nav-link">
                   <i class=" nav-icon"></i>
                   <p>add user</p>
                 </a>
@@ -101,19 +100,18 @@
          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview menu-open">
+          <li class="nav-item has-treeview menu-open" *ngIf="showOrderManagement">
             <a  class="nav-link active"> 
               <i class="nav-icon fa fa-tasks"></i>
               <p>
-            Best practice sharing
-                <i class="right fas fa-angle-left"></i>
+Orders                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item" routerLinkActive="active">
-                <a routerLink="/addpractice" class="nav-link">
+                <a routerLink="/addorder" class="nav-link">
                   <i class=" nav-icon"></i>
-                  <p>add new Best Practice</p>
+                  <p>add new Order</p>
                 </a>
               </li>
               <li class="nav-item" routerLinkActive="active">
@@ -123,9 +121,9 @@
                 </a>
               </li>
               <li class="nav-item" routerLinkActive="active">
-                <a routerLink="/allpractices" class="nav-link ">
+                <a routerLink="/allorders" class="nav-link ">
                   <i class=" nav-icon"></i>
-                  <p>view all</p>
+                  <p>view all orders</p>
                 </a>
               </li>
               <li class="nav-item">

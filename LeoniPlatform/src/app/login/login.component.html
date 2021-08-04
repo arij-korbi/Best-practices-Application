@@ -16,17 +16,17 @@
       
             <input type="text" class="form-control" placeholder="username" name="email"  [(ngModel)]="user.username" required #username="ngModel"  [class.is-invalid]="username.invalid && username.touched">
             <div class="input-group-append">
-              <div class="input-group-text">
+              <!-- <div class="input-group-text">
                 <span class="fas fa-envelope"></span>
-              </div>
+              </div> -->
             </div>
-            <small  class="text-danger" [class.d-none]="(username.valid || username.untouched)">username is required field</small>>
+            <small  class="text-danger" [class.d-none]="(username.valid || username.untouched)">username is required field</small>
 
           </div>
           <div class="input-group mb-3">
             <input type="password" class="form-control" placeholder="Password"name="password" class="form-control" id="exampleInputPassword1"  [(ngModel)]="user.password" required #password="ngModel"
             [class.is-invalid]="(password.invalid && password.touched)" >
-            <small  class="text-danger" [class.d-none]="(password.valid || password.untouched)">Password is required field</small>>
+            <small  class="text-danger" [class.d-none]="(password.valid || password.untouched)">Password is required field</small>
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-lock"></span>

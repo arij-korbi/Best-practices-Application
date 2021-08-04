@@ -1,3 +1,9 @@
+import { UploadFileComponent } from './upload-file/upload-file.component';
+import { AddNewOrderComponent } from './add-new-order/add-new-order.component';
+import { AllOrdersComponent } from './all-orders/all-orders.component';
+import { OrderGuard } from './services/orderManagment-auth.service';
+import { UserGuard } from './services/userManagement-guard.service';
+import { RoleGuard } from './services/roleManagement-guard.service';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { AllRolesComponent } from './all-roles/all-roles.component';
 import { AddNewRoleComponent } from './add-new-role/add-new-role.component';
@@ -14,10 +20,14 @@ import { AddNewUserComponent } from './add-new-user/add-new-user.component';
 import {HttpClientModule, HttpEventType} from '@angular/common/http';
 import { SuccessAddComponent } from './success-add/success-add.component';
 import { SingleUserComponent } from './single-user/single-user.component';
-import { OwnPracticeComponent } from './own-practice/own-practice.component';
+import { OwnPracticeComponent } from './own-order/own-practice.component';
 import { HttpEvent } from '@angular/common/http';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { LoginComponent } from './login/login.component';
+import { ActivatedRouteSnapshot } from '@angular/router';
+import { RouterStateSnapshot } from '@angular/router';
+import { AuthGuard } from './services/auth-guard.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +44,9 @@ import { LoginComponent } from './login/login.component';
     AllRolesComponent,
     EditProfileComponent,
     EditUserComponent,
+    AllOrdersComponent,
+    AddNewOrderComponent,
+    UploadFileComponent,
     LoginComponent
 
   ],
@@ -44,7 +57,11 @@ import { LoginComponent } from './login/login.component';
     HttpClientModule
     
   ],
-  providers: [UserService],
+  providers: [{
+    provide: 'canActivateTeam',
+    useValue: (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => true
+  },
+  AuthGuard,RoleGuard,UserService,UserGuard,OrderGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,7 @@
-import { RoleService } from './../services/role.service';
+import { RoleService } from '../services/role.service';
 import { User } from './../classes/user';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from './../services/user.service';
+import { UserService } from '../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 

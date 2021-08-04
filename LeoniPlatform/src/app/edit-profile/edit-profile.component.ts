@@ -1,4 +1,4 @@
-import { RoleService } from './../services/role.service';
+import { RoleService } from '../services/role.service';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';

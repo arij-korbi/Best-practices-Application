@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddNewPracticeComponent } from './add-new-practice.component';
+import { AllOrdersComponent } from './all-orders.component';
 
-describe('AddNewPracticeComponent', () => {
-  let component: AddNewPracticeComponent;
-  let fixture: ComponentFixture<AddNewPracticeComponent>;
+describe('BestPracticesComponent', () => {
+  let component: AllOrdersComponent;
+  let fixture: ComponentFixture<AllOrdersComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddNewPracticeComponent ]
+      declarations: [ AllOrdersComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddNewPracticeComponent);
+    fixture = TestBed.createComponent(AllOrdersComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
