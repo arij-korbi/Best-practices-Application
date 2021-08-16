@@ -4,9 +4,8 @@
     <a href="index3.html" class="brand-link">
       <img src="assets/user3.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light"><b>{{username}}</b> as <b>{{role.name}}</b></span>
+      <span class="brand-text font-weight-light"><b>{{username}}</b> as <b>{{roleName}}</b></span>
     </a>
-
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
@@ -97,9 +96,8 @@
          
           
         </ul>
-         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+        
+         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">   
           <li class="nav-item has-treeview menu-open" *ngIf="showOrderManagement">
             <a  class="nav-link active"> 
               <i class="nav-icon fa fa-tasks"></i>
@@ -133,6 +131,7 @@ Orders                <i class="right fas fa-angle-left"></i>
                 </a>
               </li>
             </ul>
+            
           </li>
         
           
@@ -140,6 +139,77 @@ Orders                <i class="right fas fa-angle-left"></i>
          
           
         </ul>
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item has-treeview menu-open" *ngIf="showOrderManagement">
+            <a  class="nav-link active"> 
+              <i class="nav-icon fa fa-tasks"></i>
+              <p>
+States              <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item" routerLinkActive="active">
+                <a routerLink="/addstate" class="nav-link">
+                  <i class=" nav-icon"></i>
+                  <p>add new State</p>
+                </a>
+              </li>
+              
+              <li class="nav-item" routerLinkActive="active">
+                <a routerLink="/allstates" class="nav-link ">
+                  <i class=" nav-icon"></i>
+                  <p>view all states</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./index3.html" class="nav-link">
+                  <i class=" nav-icon"></i>
+                  <p></p>
+                </a>
+              </li>
+            </ul>
+            
+          </li>
+        
+          
+        
+         
+          
+        </ul>
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">   
+          <li class="nav-item has-treeview menu-open" *ngIf="showOrderManagement">
+            <a  class="nav-link active"> 
+              <i class="nav-icon fa fa-tasks"></i>
+              <p>
+Transitions               <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item" routerLinkActive="active">
+                <a routerLink="/addtransition" class="nav-link">
+                  <i class=" nav-icon"></i>
+                  <p>add new Transition</p>
+                </a>
+              </li>
+           
+              <li class="nav-item" routerLinkActive="active">
+                <a routerLink="/alltransitions" class="nav-link ">
+                  <i class=" nav-icon"></i>
+                  <p>view all transitions</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./index3.html" class="nav-link">
+                  <i class=" nav-icon"></i>
+                  <p></p>
+                </a>
+              </li>
+            </ul>
+            
+          </li>
+          </ul>
       </nav>
       <!-- /.sidebar-menu -->
     </div>

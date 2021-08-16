@@ -1,9 +1,9 @@
-import { AuthService } from './../services/auth.service';
+import { AuthService } from '../services/auth.service';
 import { NgForm } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { TokenStorageService } from '../services/tokenStorage.service';
 
-import { UserService } from './../services/user.service';
+import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 import { User } from './../classes/user';
 import { Component, OnInit } from '@angular/core';

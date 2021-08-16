@@ -18,6 +18,4 @@ public deleteRole(id: number): Observable<any> {
 
    public updateRole(id:number,profile:Role):Observable<any>{return this._http.put<any>(`http://localhost:9090/editrole/${id}`,profile,httpOptions)}
    public findRoleByName (name:String):Observable<any>{return this._http.get<any>(`http://localhost:9090/findrole/${name}`,httpOptions);}
-
-
 }

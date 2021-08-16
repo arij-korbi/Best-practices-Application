@@ -1,4 +1,4 @@
-import { TokenStorageService } from './../services/tokenStorage.service';
+import { TokenStorageService } from '../services/tokenStorage.service';
 import { HTTP_INTERCEPTORS, HttpEvent } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';

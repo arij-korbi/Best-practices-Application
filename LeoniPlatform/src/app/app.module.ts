@@ -1,3 +1,6 @@
+import { StateService } from './services/state.service';
+import { UploadFileService } from './services/upload-file.service';
+import { OrderService } from './services/order.service';
 import { UploadFileComponent } from './upload-file/upload-file.component';
 import { AddNewOrderComponent } from './add-new-order/add-new-order.component';
 import { AllOrdersComponent } from './all-orders/all-orders.component';
@@ -27,6 +30,15 @@ import { LoginComponent } from './login/login.component';
 import { ActivatedRouteSnapshot } from '@angular/router';
 import { RouterStateSnapshot } from '@angular/router';
 import { AuthGuard } from './services/auth-guard.service';
+import { AddStateComponent } from './add-state/add-state.component';
+import { AllStatesComponent } from './all-states/all-states.component';
+import { EditStateComponent } from './edit-state/edit-state.component';
+import { AddTransitionComponent } from './add-transition/add-transition.component';
+import { AllTransitionsComponent } from './all-transitions/all-transitions.component';
+import { EditTransitionComponent } from './edit-transition/edit-transition.component';
+import { TransitionService } from './services/transition.service';
+import { SingleOrderComponent } from './single-order/single-order.component';
+import { EditOrderComponent } from './edit-order/edit-order.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +59,15 @@ import { AuthGuard } from './services/auth-guard.service';
     AllOrdersComponent,
     AddNewOrderComponent,
     UploadFileComponent,
-    LoginComponent
+    LoginComponent,
+    AddStateComponent,
+    AllStatesComponent,
+    EditStateComponent,
+    AddTransitionComponent,
+    AllTransitionsComponent,
+    EditTransitionComponent,
+    SingleOrderComponent,
+    EditOrderComponent
 
   ],
   imports: [
@@ -61,7 +81,7 @@ import { AuthGuard } from './services/auth-guard.service';
     provide: 'canActivateTeam',
     useValue: (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => true
   },
-  AuthGuard,RoleGuard,UserService,UserGuard,OrderGuard ],
+  AuthGuard,RoleGuard,UserService,UserGuard,OrderGuard ,OrderService,UploadFileService,StateService,TransitionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

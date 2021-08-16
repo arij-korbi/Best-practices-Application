@@ -16,7 +16,7 @@ export class Order{
     discriptionB:string;
      discriptionA:string;
      status:string;
-files:File[];
+files:any[];
 constructor(){
 
         this.id = 0;

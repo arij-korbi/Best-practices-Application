@@ -1,0 +1,68 @@
+<div class="content-wrapper">
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-3">
+          </div>
+          <div class="col-sm-4">
+          </div>
+          <div class="col-sm-3">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">States</a></li>
+              <li class="breadcrumb-item active">All states</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <div class="card">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title"><b>All states </b></h3>
+            </div>
+            <div class="card-body p-0">
+              <table class="table table-condensed">
+                <thead>
+                  <tr>
+                    <th style="width: 20%">State name</th>
+                    <th style="width: 20%">Comments</th>
+                  
+                    <th style="width: 20%"></th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let state of states ">
+                     <td><span  >{{state.state}}</span></td>
+                    <td><span >{{state.comments}}</span> </td>
+                 
+                     <td>
+                         <a class="btn btn-info btn-sm"  (click)="updateState(state.id)">
+                        <i class="fas fa-pencil-alt">
+                        </i>
+                        
+                    </a> 
+                    &nbsp;
+                    <a class="btn btn-danger btn-sm"  (click)="deleteState(state.id)">
+                      <i class="fas fa-trash">
+                      </i>
+                 
+                  </a>  
+                  </td>
+                  
+                  </tr>
+                 
+                
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+  </div>
+  
+   

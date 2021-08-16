@@ -1,0 +1,238 @@
+<div class="content-wrapper">
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1></h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">All orders</a></li>
+              <li class="breadcrumb-item active">Add new Order</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+ <section class="content">
+  <form #addOrderForm="ngForm" >
+
+    <div class="container-fluid">
+  
+      <div class="card card-dark">
+        <div class="card-header">
+          <h3 class="card-title float-sm-center"><b>WSD Best Practice SHARING</b></h3>
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-remove"></i></button>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12">
+              <div class="form-group">
+                <small  class="text-danger">{{msg}}</small>
+                <label>Title/Content:</label>
+                <input type="text" name="title" class="form-control" id="exampleInputPassword1" value="order.title" [(ngModel)]="order.title" required #title="ngModel"
+               disabled >
+      </div>
+            </div>
+          </div>
+        </div>        
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card card-default">
+            <div class="card-header">
+              <h3 class="card-title"></h3>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <label>Plant (LOKID):</label>
+                <div class="input-group my-colorpicker2">
+                  <input type="text" name="plant" class="form-control" id="exampleInputPassword1"  [(ngModel)]="order.plant" required #plant="ngModel"
+              disabled value="order.plant">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>ORG-Unit:</label>
+
+                <div class="input-group">
+                  <div class="input-group my-colorpicker2">
+                    <input type="text" name="orgUnit" class="form-control" id="exampleInputPassword1"  [(ngModel)]="order.orgUnit" required #orgUnit="ngModel"
+         disabled value="order.orgUnit" >
+
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Issued by:</label>
+
+                <div class="input-group">
+                    <input type="text" name="issuedBy" class="form-control" id="exampleInputPassword1"  [(ngModel)]="order.issuedBy" required #issuedBy="ngModel"
+             disabled value="order.issuedBy">
+              <br/>
+
+                </div>
+              </div>
+                <div class="form-group">
+                  <label>Date:</label>
+                  <div class="input-group">
+                      <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                    <input type="date" name="date" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="mm/dd/yyyy" data-mask  [(ngModel)]="order.date" required #date="ngModel"
+                   disabled value="order.date" >
+
+
+                  </div>
+              </div>
+              <div class="form-group">
+                <label>Approved by:</label>
+
+                <div class="input-group">
+                  <div class="input-group my-colorpicker2">
+                    <input type="text" name="approvedBy" class="form-control" id="exampleInputPassword1"  [(ngModel)]="order.approvedBy" required #approvedBy="ngModel"
+                   disabled value="order.approvedBy">
+               </div>
+                </div>
+              </div>
+                        </div>
+          </div>
+
+          <div class="card card-default">
+            <div class="card-header">
+              <h3 class="card-title"><b>Contact for detailed information</b></h3>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  [(ngModel)]="order.email" required #email="ngModel" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+               disabled value="order.email"
+                > 
+         
+                 </div>
+               <div class="form-group">
+                <label>Phone number:</label>
+                <div class="input-group my-colorpicker2">
+                  <input type="text" name="number" class="form-control" id="exampleInputPassword1"  [(ngModel)]="order.number" required #number="ngModel"
+                  disabled value="order.number">
+                 </div>
+           </div>
+            </div>
+          </div>
+        </div>
+                <div class="col-md-6">
+         
+
+          <div class="card card-default">
+            <div class="card-header">
+              <label>Category of improvement:</label>
+             
+            </div>
+            <div class="card-body">
+             
+              
+                <div class="input-group my-colorpicker2">
+                    <input type="text" name="categoryOfImprovment" class="form-control" id="exampleInputPassword1"  [(ngModel)]="order.categoryOfImprovement" required #number="ngModel"
+                    disabled value="order.categoryOfImprovement">
+                   </div>
+            
+             
+            </div>
+          </div>
+          <div class="card card-default">
+            <div class="card-header">
+              <h3 class="card-title"></h3>
+            </div>
+            <div class="card-body">
+             
+              <div class="form-group">
+                <label for="exampleInputFile">Investment/Benefits</label>
+                <div class="input-group">
+                    <input type="text" name="benefits" class="form-control" id="exampleInputPassword1"  [(ngModel)]="order.benefits" required #benefits="ngModel"
+                    disabled value="order.benefits">
+                                    </div>
+</div>
+
+
+               
+                <div class="form-group">
+                  <label>Areas where is applicable:</label>
+  
+                  <div class="input-group">
+                    <div class="input-group my-colorpicker2">
+                      <input type="text" name="area" class="form-control" id="exampleInputPassword1"  [(ngModel)]="order.area" required #area="ngModel"
+                     disabled value="order.area" >
+                </div>
+                  </div>
+                </div>
+             
+            </div>
+          </div>
+          <div class="card card-default">
+            <div class="card-header">
+<h3 class="card-title"><b>Complete Documentation project</b></h3>           
+ </div>
+            <div class="card-body">
+              <div class="input-group">
+                <div class="col-8">
+                  <label class="btn btn-default p-0">
+                  </label>
+                </div>
+              
+                <div class="col-4">
+                  
+                </div>
+                <div class="container-fluid">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+
+          <div class="card card-dark">
+            <div class="card-header">
+              <h3 class="card-title">Video/Picture Before</h3>
+            </div>
+            <div class="card-body">
+              <div class="input-group">
+                <div class="col-8">
+                    <img [src]="retrievedImage" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+                    style="opacity: .8">
+                </div>
+                <div class="col-4">
+                </div>
+                <div class="container-fluid">
+                </div>
+            </div>             
+             </div> 
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card card-dark">
+            <div class="card-header">
+              <h3 class="card-title">Video/Picture After</h3>
+            </div>
+    <div class="card-body">
+                <div class="input-group">
+                  <div class="col-8">
+                    <label class="btn btn-default p-0">
+                    </label>
+                  </div>
+                  <div class="container-fluid">  
+                  </div>
+               </div> 
+              </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <input type="button" value="go to change order" (click)="updateOrder(order.id)" class="btn btn-primary float-right"  data-toggle="modal" data-target="#modal">
+  </form>
+  </section>
+</div> 

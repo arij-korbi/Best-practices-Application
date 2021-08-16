@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpRequest, HttpEvent } from '@angular/common/http';
+import { HttpClient, HttpRequest, HttpEvent,HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+
+};
 @Injectable({
     providedIn: 'root'
   })
@@ -26,4 +30,6 @@ import { Observable } from 'rxjs';
     getFiles(): Observable<any> {
       return this.http.get(`${this.baseUrl}/files`);
     }
+    public findAllFiles ():Observable<any>{return this.http.get<any>("http://localhost:9090/allfiles",httpOptions);}
+
   }

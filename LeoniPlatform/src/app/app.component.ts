@@ -12,7 +12,6 @@ import { Role } from './classes/Role';
 export class AppComponent implements OnInit  {
   title = 'LeoniPlatform';
   private roles: String[] = [];
-  private role:any;
   isLoggedIn = false;
  
   username?: string;

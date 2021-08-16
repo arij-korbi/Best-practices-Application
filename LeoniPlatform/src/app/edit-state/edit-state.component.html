@@ -1,0 +1,79 @@
+<div class="content-wrapper">
+
+    <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-3">
+            </div>
+            <div class="col-sm-4">
+              <h1></h1>
+            </div>
+            <div class="col-sm-3">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">States</a></li>
+                <li class="breadcrumb-item active">Edit state</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+      <section class="content">
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    
+        <div class="row">
+            <div class="col-md-3">
+            </div>
+          <div class="col-md-6">
+            <div class="card card-dark">
+              <div class="card-header">
+                <h3 class="card-title">General</h3>
+    
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                    <i class="fas fa-minus"></i></button>
+                </div>
+              </div>
+              <div class="card-body">
+                <small  class="text-danger">{{msg}}</small>
+                <div class="form-group">
+                    <label for="inputName">State</label>
+                    <input type="text" name="profile" class="form-control" id="exampleInputPassword1"  value="state.state" [(ngModel)]="state.state" required #name="ngModel"
+                    [class.is-invalid]="(name.invalid && name.touched)"  >
+ 
+                 
+                  </div> 
+                  <div class="form-group">
+                    <div class="form-group">
+                        <label for="inputName">Comments</label>
+                        <input type="text" name="comments" class="form-control" id="exampleInputPassword1"  [(ngModel)]="state.comments" value="state.comments"
+                        >
+     
+                     
+                      </div> 
+                     
+                      
+                      
+
+                    
+                 
+                  </div> 
+                    
+           
+            </div>
+            </div>
+          </div>
+           
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+          </div>
+          
+          <div class="col-md-6">        <input type="submit" value="Save changes" class="btn btn-primary float-right" [disabled]="f.invalid" >
+    
+        </div>
+        </div>
+    </form>
+    
+      </section>
+    </div> 

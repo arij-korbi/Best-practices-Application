@@ -16,13 +16,15 @@ export class SidebarComponent implements OnInit {
   showOrderManagement=false;
   username?: string;
 role:any;
+roleName="";
   constructor(private  _userService:UserService,private tokenStorageService:TokenStorageService,private _roleService:RoleService ) {}
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
-
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
+      this.roleName=user.roles[0];
+
       this._roleService.findRoleByName(user.roles[0]).subscribe(
                 data=>{console.log("response received");
                 this.role=data;

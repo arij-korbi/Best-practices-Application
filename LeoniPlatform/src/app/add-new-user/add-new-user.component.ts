@@ -1,11 +1,9 @@
-import { RoleService } from './../services/role.service';
+import { RoleService } from '../services/role.service';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { User } from '../classes/user';
 import { NgForm } from '@angular/forms';
-import { NgModel } from '@angular/forms';
 import { Router } from '@angular/router'
-import { Role } from '../classes/Role';
 @Component({
   selector: 'app-add-new-user',
   templateUrl: './add-new-user.component.html',
