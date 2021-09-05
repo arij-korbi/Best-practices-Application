@@ -1,3 +1,4 @@
+import { MyValidator } from "./MyValidator";
 
 export class Order{
      id:number;
@@ -11,12 +12,16 @@ export class Order{
      benefits:string;
     area:string;
      idDocumentation:number;
+     documentationUrl:String;
+
   number:string;
      email:string;
     discriptionB:string;
      discriptionA:string;
+
      status:string;
 files:any[];
+validators:MyValidator[];
 constructor(){
 
         this.id = 0;
@@ -36,6 +41,8 @@ constructor(){
         this.discriptionA = "";
         this.status=status;
 this.files=[];
+this.documentationUrl="";
+this.validators=[];
     
 }
 

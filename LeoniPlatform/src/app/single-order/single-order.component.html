@@ -18,7 +18,13 @@
   <form #addOrderForm="ngForm" >
 
     <div class="container-fluid">
+        <div class="card card-default">
+          <div class="card-header">
+            <h4><b>Status:</b> <span class="text-success"> Validated</span></h4> 
   
+          </div>
+              
+        </div>
       <div class="card card-dark">
         <div class="card-header">
           <h3 class="card-title float-sm-center"><b>WSD Best Practice SHARING</b></h3>
@@ -178,6 +184,8 @@
                 <div class="col-8">
                   <label class="btn btn-default p-0">
                   </label>
+                  <a href="{{order.documentationUrl}}">{{ fileDoc.name }}</a>
+
                 </div>
               
                 <div class="col-4">
@@ -196,13 +204,13 @@
 
           <div class="card card-dark">
             <div class="card-header">
-              <h3 class="card-title">Video/Picture Before</h3>
+              <h3 class="card-title">Picture Before</h3>
             </div>
             <div class="card-body">
               <div class="input-group">
                 <div class="col-8">
-                    <img [src]="retrievedImage" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-                    style="opacity: .8">
+                    <img [src]="retrievedImageB" alt="AdminLTE Logo" 
+                    width="300" height="220" > 
                 </div>
                 <div class="col-4">
                 </div>
@@ -215,14 +223,14 @@
         <div class="col-sm-6">
           <div class="card card-dark">
             <div class="card-header">
-              <h3 class="card-title">Video/Picture After</h3>
+              <h3 class="card-title">Picture After</h3>
             </div>
     <div class="card-body">
                 <div class="input-group">
                   <div class="col-8">
-                    <label class="btn btn-default p-0">
-                    </label>
-                  </div>
+                    <img [src]="retrievedImageA" alt="AdminLTE Logo" 
+                    width="300" height="220">
+                </div>
                   <div class="container-fluid">  
                   </div>
                </div> 
@@ -232,7 +240,42 @@
       </div>
 
     </div>
-    <input type="button" value="go to change order" (click)="updateOrder(order.id)" class="btn btn-primary float-right"  data-toggle="modal" data-target="#modal">
   </form>
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title"><b>Transitions</b></h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+      <table class="table table-condensed">
+        <thead>
+          <tr>
+            <th style="width: 2%">number</th>
+            <th style="width:2%">Comments</th>
+
+            <th style="width: 6%">user</th>
+            <th style="width: 8%">Status</th>
+
+
+          </tr>
+        </thead>
+        <tbody>
+           
+         <tr *ngFor="let validator of order.validators ">
+              <td>{{validator.transitionNumber}}</td>
+              <td>{{validator.comments}}</td> 
+
+              <td>{{validator.userValid}}</td>
+              <td>Transition finished</td>              
+
+
+          </tr>
+         
+        
+        </tbody>
+      </table>
+    </div>
+    <!-- /.card-body -->
+  </div>
   </section>
 </div> 

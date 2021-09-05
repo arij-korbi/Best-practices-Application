@@ -16,9 +16,15 @@
     </section>
  <section class="content">
   <form #addOrderForm="ngForm" (ngSubmit)="addOrder(addOrderForm)" >
-
+    <!-- " -->
     <div class="container-fluid">
-  
+      <div class="card card-default">
+        <div class="card-header">
+          <h4><b>Status:</b> <span class="text-danger">  {{order.status}}</span></h4> 
+
+        </div>
+            
+      </div>
       <div class="card card-dark">
         <div class="card-header">
           <h3 class="card-title float-sm-center"><b>WSD Best Practice SHARING</b></h3>
@@ -427,7 +433,71 @@
           </div>
         </div>
       </div>
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title"><b>Start the validation life cycle</b></h3>
+          <div class="row">
+            <div class="col-sm-3">
 
+          <div class="form-group clearfix">
+                   
+            <div class="icheck-primary d-inline">
+              <input type="radio" id="checkboxDanger20" name="yes" value="yes" change="radioChangeHandlerr($event)" [(ngModel)]="startWorkflow">
+              <label for="checkboxDanger20"> &nbsp; Yes
+              </label>
+            </div>
+          </div>
+          </div>
+          <div class="col-sm-4">
+
+          <div class="form-group clearfix">
+                   
+            <div class="icheck-primary d-inline">
+              <input type="radio" id="checkboxDanger21" name="no" value="no" change="radioChangeHandlerr($event)" [(ngModel)]="startWorkflow">
+              <label for="checkboxDanger21"> &nbsp; Not yet
+              </label>
+            </div>
+          </div>
+          </div>
+        </div>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body p-0">
+          <table class="table table-condensed">
+            <thead>
+              <tr>
+                <th style="width: 2%">id transition</th>
+                <th style="width:2%">Comments</th>
+
+                <th style="width: 6%">user</th>
+                <th style="width: 6%">status</th>
+
+    
+    
+              </tr>
+            </thead>
+            <tbody>
+               
+             <tr *ngFor="let transition of transitions ;let index = index">
+                  <td>   <input type="text" name="transitions.{{index}}.number" class="form-control" id="exampleInputPassword1"  [(ngModel)]="transition.number" required #area="ngModel"
+                    disabled value="transition.number" ></td>
+                  <td><input type="text" name="transitions.{{index}}.comments" class="form-control" id="exampleInputPassword1"  [(ngModel)]="transition.comments" required #area="ngModel"
+                    disabled value="transition.comments" >      
+                  </td>              
+                  <td>{{transition.userValid}}
+                    <select class="form-control" name="transitions.{{index}}.userValid" [(ngModel)]="transition.userValid"  >
+                      <option  *ngFor="let user of users"
+                      [value]="user.email">{{user.email}}</option>
+                      </select> 
+                  </td>
+                  <td>----</td></tr>
+             
+            
+            </tbody>
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
     </div>
     <input type="submit" value="Add new order" class="btn btn-primary float-right" [disabled]="addOrderForm.invalid" data-toggle="modal" data-target="#modal">
   </form>

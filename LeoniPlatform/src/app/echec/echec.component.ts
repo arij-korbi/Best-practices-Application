@@ -1,16 +1,15 @@
-import { TokenStorageService } from './../services/tokenStorage.service';
 import { Component, OnInit } from '@angular/core';
+import { TokenStorageService } from '../services/tokenStorage.service';
 
 @Component({
-  selector: 'app-success-add',
-  templateUrl: './success-add.component.html',
-  styleUrls: ['./success-add.component.sass']
+  selector: 'app-echec',
+  templateUrl: './echec.component.html',
+  styleUrls: ['./echec.component.sass']
 })
-export class SuccessAddComponent implements OnInit {
+export class EchecComponent implements OnInit {
   isLoggedIn = false;
   user:any;
-  username:any;
-
+username:any;
   constructor(private tokenStorageService:TokenStorageService) { }
 
   ngOnInit(): void {
@@ -19,5 +18,4 @@ export class SuccessAddComponent implements OnInit {
        this.user = this.tokenStorageService.getUser();
       this.username=this.user.username;}
   }
-
 }

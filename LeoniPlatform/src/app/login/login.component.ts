@@ -19,9 +19,13 @@ msg='';
 isLoggedIn = false;
 isLoginFailed = false;
 roles: string[] = [];
-
-constructor(private tokenStorage: TokenStorageService,private _authService:AuthService,private _router:Router) { }
+url:any;
+constructor(private tokenStorage: TokenStorageService,private _authService:AuthService,private _router:Router) {
+  this.url="";
+ }
   ngOnInit(): void {
+    this.url=localStorage.getItem('url');
+
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
@@ -36,7 +40,9 @@ constructor(private tokenStorage: TokenStorageService,private _authService:AuthS
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
       this.reloadPage();
-
+      console.log(this.url);
+      //  this._router.navigate(['/updateorder',0]);
+      
    },
     error=>{console.log("exception occured");
     this.msg= error.error.message;
@@ -46,5 +52,6 @@ constructor(private tokenStorage: TokenStorageService,private _authService:AuthS
     )}
     reloadPage(): void {
       window.location.reload();
+      window.location.href=this.url;
     }
 }

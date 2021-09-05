@@ -39,6 +39,9 @@ import { EditTransitionComponent } from './edit-transition/edit-transition.compo
 import { TransitionService } from './services/transition.service';
 import { SingleOrderComponent } from './single-order/single-order.component';
 import { EditOrderComponent } from './edit-order/edit-order.component';
+import { EmailSenderComponent } from './email-sender/email-sender.component';
+import { ValidateOrderComponent } from './validate-order/validate-order.component';
+import { EchecComponent } from './echec/echec.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +70,10 @@ import { EditOrderComponent } from './edit-order/edit-order.component';
     AllTransitionsComponent,
     EditTransitionComponent,
     SingleOrderComponent,
-    EditOrderComponent
+    EditOrderComponent,
+    EmailSenderComponent,
+    ValidateOrderComponent,
+    EchecComponent
 
   ],
   imports: [

@@ -12,7 +12,11 @@ export class AllTransitionsComponent implements OnInit {
 
   @Input()transitionId:number;
   transitions:Transition[];
-    constructor(private  _transitionService:TransitionService, private router:Router ) {this.transitions=[]; this.transitionId=0;}
+  Mfields:any[];
+    constructor(private  _transitionService:TransitionService, private router:Router ) {
+      this.transitions=[]; 
+      this.transitionId=0;
+    this.Mfields=[];}
   
     ngOnInit(): void {
       this.findAllTransitions();
@@ -21,9 +25,9 @@ export class AllTransitionsComponent implements OnInit {
   findAllTransitions(){this._transitionService.findAllTransitions().subscribe(
     data=>{console.log("response received");
     this.transitions=data;
-    console.log(this.transitions);
+
      },
-      error=>{console.log("exception occured");
+      error=>{console.log(error);
       })}
       
       deleteTransition(id:number){

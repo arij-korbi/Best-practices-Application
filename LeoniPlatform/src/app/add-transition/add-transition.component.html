@@ -37,6 +37,12 @@
                 <small  class="text-danger">{{msg}}</small>
                 <div class="form-group">
               
+                  <label for="inputName"   required>Number</label>
+                  <input type="text" name="number" class="form-control" id="exampleInputPassword1"  [(ngModel)]="transition.number"
+                  >
+             </div>
+                <div class="form-group">
+              
                     <label for="inputName"   required>From</label>
                    <select class="form-control" name="from" [(ngModel)]="transition.fromTransition">
                    <option             *ngFor="let state of states"
@@ -54,6 +60,18 @@
            <div *ngFor="let field of fields">
                <input type="checkbox" name="{{field}}" [value]="field" (change)="saveFields($event,field)"> &nbsp;<b>{{field}}</b>
            </div>
+           <div class="form-group">        
+            <label for="inputName"   required>User</label>
+           <select class="form-control" name="user" [(ngModel)]="transition.userValid">
+           <option             *ngFor="let user of users"
+           [value]="user.email">{{user.email}}</option>
+           </select> 
+       </div>
+       <div class="form-group">
+        <label for="inputName">send email to </label>
+        <input type="text" name="sendto" class="form-control" id="exampleInputPassword1"  [(ngModel)]="transition.sendMailTo"
+        >
+      </div>
                   <div class="form-group">
                     <label for="inputName">Comments</label>
                     <input type="text" name="comments" class="form-control" id="exampleInputPassword1"  [(ngModel)]="transition.comments"

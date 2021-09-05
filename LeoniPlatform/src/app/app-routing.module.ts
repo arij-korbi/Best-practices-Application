@@ -1,3 +1,5 @@
+import { EchecComponent } from './echec/echec.component';
+import { EmailSenderComponent } from './email-sender/email-sender.component';
 import { SingleOrderComponent } from './single-order/single-order.component';
 import { EditOrderComponent } from './edit-order/edit-order.component';
 import { EditTransitionComponent } from './edit-transition/edit-transition.component';
@@ -25,16 +27,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './services/auth-guard.service';
 import { RoleGuard } from './services/roleManagement-guard.service';
+import { ValidateOrderComponent } from './validate-order/validate-order.component';
 
 const routes: Routes = [
   // {path:'ownpractices',component:OwnPracticeComponent},
   {path:'allorders',component:AllOrdersComponent},
   {path:'addorder',component:AddNewOrderComponent},
-  {path:'updateorder/:id',component:EditOrderComponent},
+  {path:'updateorder/:id',canActivate:[AuthGuard,OrderGuard],component:EditOrderComponent},
   {path:'order/:id',component:SingleOrderComponent},
   {path:'allusers',canActivate:[AuthGuard,UserGuard],component:AllUsersComponent},
   {path:'adduser',canActivate:[AuthGuard,UserGuard],component:AddNewUserComponent},
   {path:'success',canActivate:[AuthGuard],component:SuccessAddComponent},
+  {path:'echec',canActivate:[AuthGuard],component:EchecComponent},
+
   {path:'addrole',canActivate:[AuthGuard,RoleGuard],component:AddNewRoleComponent},
    {path:'allroles',canActivate:[AuthGuard,RoleGuard],component:AllRolesComponent},
       {path:'uploadfile',component:UploadFileComponent},
@@ -46,7 +51,12 @@ const routes: Routes = [
    {path:'addtransition',component:AddTransitionComponent},
    {path:'alltransitions',component:AllTransitionsComponent},
    {path:'updatetransition/:id',component:EditTransitionComponent},
+  {path:'login/:var',component:LoginComponent},
   {path:'login',component:LoginComponent},
+
+  {path:'sendmail',component:EmailSenderComponent},
+  {path:'validation/:idorder/:idtransition',canActivate:[AuthGuard],component:ValidateOrderComponent}
+
 
 
 
